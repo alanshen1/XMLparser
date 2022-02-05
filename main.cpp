@@ -23,9 +23,9 @@
 
 std::wstring ReplaceString
 (
-    std::wstring String1  // ’u‚«Š·‚¦‘ÎÛ
-    , std::wstring String2  // ŒŸõ‘ÎÛ
-    , std::wstring String3  // ’u‚«Š·‚¦‚é“à—e
+    std::wstring String1  // ç½®ãæ›ãˆå¯¾è±¡
+    , std::wstring String2  // æ¤œç´¢å¯¾è±¡
+    , std::wstring String3  // ç½®ãæ›ãˆã‚‹å†…å®¹
 ){
     std::wstring::size_type  Pos(String1.find(String2));
 
@@ -98,8 +98,8 @@ void queryNodesSmart(const wchar_t* file)
         printf("Result from XML1:\n \tNode\n \tLabel : <%s>\n \tDescription: <%s> \n", 
             nodeLabelVal.c_str(), nodeDescriptionVal.c_str());
 
-        std::wstring file2 = ReplaceString(file, L"ReportType_migfull", L"ReportType_hhtdev2");
-        std::wstring file3 = ReplaceString(file, L"ReportType_migfull", L"ReportType_hhtdev3");
+        std::wstring file2 = ReplaceString(file, L"XXXXXXX", L"NYNYNYNYNY");
+        std::wstring file3 = ReplaceString(file, L"XXXXXXX", L"NYNYNYNYNY");
         wprintf(L"Out put file path: %s \n\n ", file3.c_str());
        
         MSXML2::IXMLDOMDocumentPtr pXMLDom2;
@@ -158,7 +158,6 @@ void queryNodesSmart(const wchar_t* file)
                 return;
             }
         }
-
 
     }
     catch (_com_error errorObject){
@@ -266,12 +265,12 @@ bool ListDirectoryContents(const wchar_t* sDir)
 int main()
 {
     setlocale(LC_ALL, "Japanese");
-    std::cout << "Hello ‚ ‚ ‚ !\n";
+    std::cout << "Hello ã‚ã‚ã‚!\n";
 
     HRESULT hr = CoInitialize(NULL);
     if (SUCCEEDED(hr)) {
         
-        ListDirectoryContents(L"C:\\work\\migfull\\ReportType_hhtdev3_after\\reportTypes");
+        ListDirectoryContents(L"C:\\work\\");
         CoUninitialize();
     }
     return 0;
